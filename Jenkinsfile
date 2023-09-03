@@ -16,12 +16,20 @@ pipeline {
                 url: 'https://github.com/adviniski/devops-back.git'
                 }
         }
-        stage ('Test'){
+        stage ('Install Dependencies'){
                 steps {
-                    bat ".\\venv\\Scripts\\python.exe test.py"
+                    bat "python -m venv venv"
+                    bat ".\\venv\\Scripts\\Activate.ps1"
+                    bat "pip install flask pymysql sqlalchemy=2.0.4 sqlalchemy-utils chyptography"
                 }
         }
-        
+
+        stage ('Test'){
+                steps {
+                    bat "python test.py"
+                }
+        }
+        /*
         stage ('Clean Up'){
             steps{
                 sh returnStatus: true, script: 'docker stop $(docker ps -a | grep ${JOB_NAME} | awk \'{print $1}\')'
@@ -55,6 +63,6 @@ pipeline {
                 sh label: '', script: "docker run -d --name ${JOB_NAME} -p 5000:5000 ${img}"
           }
         }
-
+        */
       }
     }

@@ -19,8 +19,8 @@ pipeline {
         stage ('Install Dependencies'){
                 steps {
                     bat "python -m venv venv"
-                    bat ".\\venv\\Scripts\\activate.bat"
-                    bat "python -m pip install flask pymysql sqlalchemy==2.0.4 sqlalchemy-utils cryptography"
+                    bat "venv\\Scripts\\activate.bat"
+                    bat "pip install flask pymysql sqlalchemy==2.0.4 sqlalchemy-utils cryptography"
                 }
         }
 

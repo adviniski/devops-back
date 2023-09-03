@@ -27,7 +27,7 @@ pipeline {
         stage ('Test'){
                 steps {
                     bat "venv\\Scripts\\activate.bat"
-                    bat "flask run"
+                    bat "flask run && pause(5)"
                     bat "python test.py"
                 }
         }

@@ -18,7 +18,7 @@ pipeline {
         }
         stage ('Test'){
                 steps {
-                    bat "venv/Scripts/python test.py"
+                    bat ".\\venv\\Scripts\\python.exe test.py"
                 }
         }
         

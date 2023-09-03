@@ -6,7 +6,9 @@ pipeline {
         githubCredential = 'GITHUB'
         dockerImage = ''
     }
-    stage('Build Image') {
+    
+    stages {
+        stage('Build Image') {
             steps {
                 script {
                     img = registry + ":${env.BUILD_ID}"
@@ -15,8 +17,6 @@ pipeline {
                 }
             }
         }
-    stages {
-        
         stage('checkout') {
                 steps {
                 git branch: 'main',

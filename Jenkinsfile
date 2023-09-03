@@ -6,7 +6,15 @@ pipeline {
         githubCredential = 'GITHUB'
         dockerImage = ''
     }
-    agent any
+    stage('Build Image') {
+            steps {
+                script {
+                    img = registry + ":${env.BUILD_ID}"
+                    println ("${img}")
+                    dockerImage = docker.build("${img}", "Dockerfile.api")
+                }
+            }
+        }
     stages {
         
         stage('checkout') {
@@ -26,7 +34,6 @@ pipeline {
 
         stage ('Test'){
                 steps {
-                    bat "venv\\Scripts\\activate.bat"
                     bat "venv\\Scripts\\python.exe api.py"
                     bat "venv\\Scripts\\python.exe test.py"
                 }

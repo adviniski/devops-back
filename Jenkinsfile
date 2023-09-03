@@ -20,7 +20,7 @@ pipeline {
                 steps {
                     bat "python -m venv venv"
                     bat "venv\\Scripts\\activate.bat"
-                    bat "pip install flask pymysql sqlalchemy==2.0.2 sqlalchemy-utils cryptography"
+                    bat "pip install flask flask-sqlalchemy pymysql python-dotenv sqlalchemy==2.0.2 sqlalchemy-utils cryptography"
                 }
         }
 

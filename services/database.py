@@ -12,5 +12,5 @@ HOST=os.environ.get("DEVOPS_HOST")
 PORT=os.environ.get("DEVOPS_PORT")
 
 metadata = MetaData()
-instance = f"{SERVER}+{PACKAGE}://{USER}:{quote(PASSWD)}@{HOST}:{PORT}/{DATABASE}"
+instance = f"{SERVER}+{PACKAGE}://{USER}:{quote(str(PASSWD))}@{HOST}:{PORT}/{DATABASE}"
 db = SQLAlchemy(metadata=metadata)

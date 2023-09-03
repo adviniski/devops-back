@@ -14,8 +14,16 @@ db.init_app(app)
 create_db()
 create_tables(app=app)
 
+@app.route('/')
+def hello_geek():
+    return '<h1>Hello from Flask & Docker</h2>'
+
 @app.route("/time")
 def get_current_time():
     data:list[User] = db.session.query(User).all()
     users = [row.as_dict() for row in data]
     return jsonify(users)
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0")

@@ -13,7 +13,7 @@ pipeline {
                 script {
                     img = registry + ":${env.BUILD_ID}"
                     println ("${img}")
-                    dockerImage = docker.build("${img}", "Dockerfile.api")
+                    def dockerImage = docker.build("${img}", "Dockerfile.api")
                 }
             }
         }

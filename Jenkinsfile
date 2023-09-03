@@ -11,7 +11,7 @@ pipeline {
         
         stage('checkout') {
                 steps {
-                git branch: 'master',
+                git branch: 'main',
                 credentialsId: githubCredential,
                 url: 'https://github.com/adviniski/devops-back.git'
                 }

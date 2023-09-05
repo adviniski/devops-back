@@ -9,6 +9,13 @@ pipeline {
     }
     agent any
     stages {
+        stage('checkout') {
+                steps {
+                git branch: 'main',
+                credentialsId: githubCredential,
+                url: 'https://github.com/adviniski/devops-back.git'
+                }
+        }
         stage('Build Image') {
             steps {
                 script {
@@ -18,13 +25,7 @@ pipeline {
                 }
             }
         }
-        stage('checkout') {
-                steps {
-                git branch: 'main',
-                credentialsId: githubCredential,
-                url: 'https://github.com/adviniski/devops-back.git'
-                }
-        }
+        
         stage ('Install Dependencies'){
                 steps {
                     bat "python -m venv venv"

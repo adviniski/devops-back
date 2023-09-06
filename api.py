@@ -18,6 +18,10 @@ create_tables(app=app)
 def hello_geek():
     return '<h1>Hello from Flask & Docker</h2>'
 
+@app.route('/test')
+def hello_geek():
+    return '<h1>Testing API</h2>'
+
 @app.route("/time")
 def get_current_time():
     data:list[User] = db.session.query(User).all()
@@ -26,4 +30,5 @@ def get_current_time():
 
 
 if __name__ == "__main__":
+    
     app.run(host="0.0.0.0")

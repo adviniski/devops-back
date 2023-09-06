@@ -16,11 +16,15 @@ create_tables(app=app)
 
 @app.route('/')
 def hello_geek():
-    return '<h1>Hello from Flask & Docker</h2>'
+    return '<h2>Hello from Flask & Docker</h2>'
 
 @app.route('/test')
 def testing_api():
-    return '<h1>Testing API!!</h2>'
+    return '<h2>Testing API!!</h2>'
+
+@app.route('/jenkinstest')
+def testing_api():
+    return '<h2>Jenkins API!!</h2>'
 
 @app.route("/time")
 def get_current_time():

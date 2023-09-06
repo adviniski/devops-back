@@ -20,7 +20,7 @@ def hello_geek():
 
 @app.route('/test')
 def testing_api():
-    return '<h1>Testing API</h2>'
+    return '<h1>Testing API!!</h2>'
 
 @app.route("/time")
 def get_current_time():

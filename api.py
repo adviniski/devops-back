@@ -19,8 +19,8 @@ def hello_geek():
     return '<h2>Hello from Flask & Docker</h2>'
 
 @app.route('/test')
-def testing_api():
-    return '<h2>Testing API!!</h2>'
+def testing_jenkins():
+    return '<h2>Testing Jenkins!!</h2>'
 
 @app.route('/jenkinstest')
 def testing_api():

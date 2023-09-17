@@ -8,9 +8,16 @@ def create_db():
 
 def create_tables(app:Flask):
     with app.app_context():
+        db.drop_all()
         db.create_all()
-        user = User(name="Antonio", email="antonio")
-        user2 = User(name="Fernando", email="fernando")
 
-        db.session.add_all([user, user2])
+def seeds(app:Flask):
+    with app.app_context():
+        user = User(name="Antonio David Viniski", email="antonio.david@pucpr.br")
+        user2 = User(name="João da Silva", email="joao.silva@pupr.br")
+        user3 = User(name="Maria de Jesus", email="maria.jesus@pupr.br")
+        user4 = User(name="Jorge dos Santos", email="jorge.santos@pupr.br")
+        user5 = User(name="Juliana de Andrade", email="juliana.andrade@pupr.br")
+
+        db.session.add_all([user, user2,user3,user4,user5])
         db.session.commit()

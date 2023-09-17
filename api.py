@@ -3,7 +3,8 @@ load_dotenv()
 
 from flask import Flask, jsonify
 from models import *
-from utils.database_utils import create_db, create_tables
+from utils.database_utils import *
+
 
 app = Flask(__name__)
 
@@ -11,8 +12,10 @@ app.config['SECRET_KEY'] = 'generated-secrete-key'
 app.config["SQLALCHEMY_DATABASE_URI"] = instance
 
 db.init_app(app)
+
 create_db()
 create_tables(app=app)
+seeds(app=app)
 
 @app.route('/')
 def hello_geek():

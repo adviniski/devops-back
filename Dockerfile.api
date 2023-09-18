@@ -1,7 +1,7 @@
 FROM python:3.11
 WORKDIR /devops-back
 
-COPY ./devops-back/requirements.txt ./devops-back/.env ./devops-back/api.py ./devops-back/.flaskenv ./
+COPY ./devops-back/requirements.txt ./devops-back/api.py ./devops-back/.flaskenv ./
 COPY ./devops-back/models ./models
 COPY ./devops-back/services ./services
 COPY ./devops-back/utils ./utils
